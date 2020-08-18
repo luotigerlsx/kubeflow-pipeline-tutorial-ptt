@@ -31,7 +31,7 @@ export KUBEFLOW_TFX_IMAGE="gcr.io/${PROJECT_ID}/${TFX_IMAGE_NAME}:${TAG}"
 gcloud builds submit --tag ${KUBEFLOW_TFX_IMAGE} .
 
 export PIPELINE_NAME=tfx_covertype_classifier_training
-export RUNTIME_VERSION=2.1
+export RUNTIME_VERSION=1.15
 export PYTHON_VERSION=3.7
 export GCP_REGION=us-central1
 export ZONE=us-central1-a

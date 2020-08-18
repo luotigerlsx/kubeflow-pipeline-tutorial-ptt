@@ -1,4 +1,4 @@
-# Orchestrating model training and deployment with TFX and Cloud AI Platform
+a# Orchestrating model training and deployment with TFX and Cloud AI Platform
 
 In this lab you will develop, deploy and run a TFX pipeline that uses Kubeflow Pipelines for orchestration and Cloud Dataflow and Cloud AI Platform for data processing, training, and deployment:
 
@@ -72,7 +72,7 @@ export TFX_IMAGE="gcr.io/${PROJECT_ID}/${IMAGE_NAME}:${TAG}"
 gcloud builds submit --timeout 15m --tag ${TFX_IMAGE} .
 ```
 
-#### Compiling and uploading the pipeline to the KFP environment
+#### Compiling the pipeline package
 The pipeline's DSL retrieves the settings controlling how the pipeline is compiled from the environment variables. In addition to the environment settings configured before, you need to set a few additional pipeline specific settings:
 
 ```
@@ -80,40 +80,10 @@ export PIPELINE_NAME=tfx_covertype_classifier_training
 export RUNTIME_VERSION=1.15
 export PYTHON_VERSION=3.7
 
-tfx pipeline create --engine kubeflow --pipeline_path pipeline_dsl.py --endpoint $INVERSE_PROXY_HOSTNAME
+python pipeline_dsl.py
 ```
 
+#### Upload the pipeline through UI
 
-The `tfx pipeline create` command compiles the pipeline's DSL into the KFP package file - `tfx_covertype_classifier_training.tar.gz` and uploads the package to the KFP environment. The package file contains the description of the pipeline in the YAML format. If you want to examine the file, extract from the tarball file and use the JupyterLab editor.
-
-```
-tar xvf tfx_covertype_classifier_training.tar.gz
-```
-
-The name of the extracted file is `pipeline.yaml`.
-
-
-### Submitting and monitoring pipeline runs
-
-After the pipeline has been deployed, you can trigger and monitor pipeline runs using **TFX CLI** or **KFP UI**.
-
-To submit the pipeline run using **TFX CLI**:
-```
-tfx run create --pipeline_name tfx_covertype_classifier_training --endpoint $INVERSE_PROXY_HOSTNAME
-```
-
-To list all the active runs of the pipeline:
-```
-tfx run list --pipeline_name tfx_covertype_classifier_training --endpoint $INVERSE_PROXY_HOSTNAME
-```
-
-To retrieve the status of a given run:
-```
-tfx run status --pipeline_name tfx_covertype_classifier_training --run_id [YOUR_RUN_ID] --endpoint $INVERSE_PROXY_HOSTNAME
-```
- To terminate a run:
- ```
- tfx run terminate --run_id [YOUR_RUN_ID] --endpoint $INVERSE_PROXY_HOSTNAME
- ```
-
+#### Trigger pipeline run through UI
 

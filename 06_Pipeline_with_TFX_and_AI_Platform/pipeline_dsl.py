@@ -92,7 +92,7 @@ def _create__pipeline(pipeline_name: Text,
                            ai_platform_training_args})
 
     # Uses TFMA to compute a evaluation statistics over features of a model.
-
+    
     eval_config = tfma.EvalConfig(
         model_specs=[
             # This assumes a serving model with signature 'serving_default'. If
