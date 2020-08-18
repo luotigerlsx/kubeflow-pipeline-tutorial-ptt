@@ -204,7 +204,7 @@ if __name__ == '__main__':
     ]
 
     operator_funcs = [
-        gcp.use_gcp_secret('user-gcp-sa'),
+#         gcp.use_gcp_secret('user-gcp-sa'),
     ]
 
     # Known issue https://github.com/tensorflow/tfx/issues/1287
