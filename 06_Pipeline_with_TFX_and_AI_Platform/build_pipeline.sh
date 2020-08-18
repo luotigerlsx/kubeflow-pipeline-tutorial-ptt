@@ -15,7 +15,7 @@
 #
 # Submits a Cloud Build job that builds and deploys
 # the pipelines and pipelines components 
-export GOOGLE_APPLICATION_CREDENTIALS=../config/kubeflow-pipeline-fantasy.json
+# export GOOGLE_APPLICATION_CREDENTIALS=../config/kubeflow-pipeline-fantasy.json
 
 export PROJECT_ID=kubeflow-pipeline-fantasy
 PREFIX=$PROJECT_ID
