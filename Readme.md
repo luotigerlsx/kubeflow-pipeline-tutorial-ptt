@@ -1,10 +1,10 @@
-## Regional Container Registry
+## Regional Artifact Registry
 [Artifact Registry](https://cloud.google.com/artifact-registry)
 is a single place for your organization to manage container images and language packages (such as Maven and npm). It is fully integrated with Google Cloud’s tooling and runtimes and comes with support for native artifact protocols. More importantly, it supports regional and multi-regional repositories.
 
-### The steps to create regional Docker repository is as follows
+### The steps to create regional Docker repository in Artifact Registry are as follows
 
-- Run the following command to create a new Docker repository named `AF_REGISTRY_NAME` in the location `AF_REGISTRY_LOCATION` with the description "Regional Docker repository".
+- Run the following command to create a new Docker repository named `AF_REGISTRY_NAME` in the location `AF_REGISTRY_LOCATION` with the description "Regional Docker repository". The regional Artifact Registry supports quite a number of regions, e.g., Hong Kong, Taiwan, Singapore, Tokyo in Asia.
 
 ```shell
 gcloud beta artifacts repositories create $AF_REGISTRY_NAME \
